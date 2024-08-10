@@ -1,11 +1,18 @@
 import { IteratorResult } from "./iters";
 
 export class Fibonacci implements IterableIterator<number> {
-   protected num1 = 0;
-   protected num2 = 1;
-   protected it = 0;
+   protected num1: number;
+   protected num2: number;
+   protected it: number;
+   protected n: number;
 
-   constructor(protected n: number) {}
+   constructor(n: number, num1: number = 0, num2: number = 1) {
+	  this.num1 = num1;
+	  this.num2 = num2;
+	 
+	  this.it = 0;
+	  this.n = n;
+   }
 
    public next(): IteratorResult<number> {
 	  if(this.n) {
